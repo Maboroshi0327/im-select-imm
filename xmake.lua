@@ -6,12 +6,9 @@ target("im-select-imm")
     set_kind("binary")
     add_files("src/*.cpp")
     add_files("src/*.c")
-    
     add_includedirs("inc/")
- 
-    add_rules("win.sdk.application")
-    add_ldflags("-subsystem:console")
-    add_links("imm32")
+    add_ldflags("-subsystem:console", {force = true})
+    add_links("imm32", "user32")
 
 
 
@@ -82,4 +79,3 @@ target("im-select-imm")
 --
 -- @endcode
 --
-
