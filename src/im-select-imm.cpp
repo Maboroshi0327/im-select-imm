@@ -14,7 +14,7 @@ int getInputMethod() {
 	if (hwnd) {
 		DWORD threadID = GetWindowThreadProcessId(hwnd, NULL); //dll
 		HKL currentLayout = GetKeyboardLayout(threadID); //dll
-		unsigned int x = (unsigned int)currentLayout & 0x0000FFFF;
+		unsigned int x = HandleToUlong(currentLayout) & 0x0000FFFF;
 		return ((int)x);
 	}
 	return 0;
